@@ -1,0 +1,7 @@
+{
+    "emmet.includeLanguages": {
+        "postcss": "css",
+        "javascript": "javascriptreact"
+    },
+    "editor.snippetSuggestions": "top"
+}

@@ -1,0 +1,161 @@
+@media screen and (max-width: 1000px) {
+	.desktopNavContainer {
+		display: none;
+	}
+	.mobileNavContainer {
+		display: flex;
+		flex-direction: column;
+		background-color: transparent;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+		.navTitle {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			top: rfs(5rem);
+			font-size: var(--font-size-title);
+			z-index: 2;
+			color: var(--color-white);
+		}
+		.logoWrapper {
+			align-self: flex-start;
+			margin: var(--sizing-small);
+			z-index: 2;
+		}
+		.checkbox {
+			position: absolute;
+			display: block;
+			height: 32px;
+			width: 32px;
+			top: rfs(5rem);
+			right: rfs(5rem);
+			z-index: 5;
+			opacity: 0;
+			cursor: pointer;
+		}
+		.hamburgerLines {
+			display: block;
+			height: 26px;
+			width: 32px;
+			position: absolute;
+			top: var(--sizing-xl);
+			right: var(--sizing-xl);
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			.line {
+				display: block;
+				height: 4px;
+				width: 100%;
+				border-radius: 10px;
+				background: var(--color-white);
+			}
+			.lineOne {
+				transform-origin: 0% 0%;
+				transition: all 0.4s ease-in-out;
+			}
+			.lineTwo {
+				transition: all 0.2s ease-in-out;
+			}
+			.lineThree {
+				transform-origin: 0% 100%;
+				transition: all 0.4s ease-in-out;
+			}
+		}
+		.navItemContainer {
+			padding-top: 120px;
+			box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+			height: -webkit-fill-available;
+			width: 100%;
+			transform: translate(-150%);
+			display: flex;
+			flex-direction: column;
+			margin-left: -40px;
+			padding-left: 50px;
+			transition: transform 0.5s ease-in-out;
+			text-align: center;
+			list-style-type: none;
+			background-color: var(--color-white);
+			position: fixed;
+			z-index: 1;
+			li {
+				margin-bottom: 1.2rem;
+				font-size: 1.5rem;
+				font-weight: 500;
+				a {
+					text-decoration: none;
+					color: black;
+				}
+			}
+		}
+		input[type="checkbox"]:checked ~ .navItemContainer {
+			transform: translateX(0);
+		}
+
+		input[type="checkbox"]:checked ~ .hamburgerLines .line {
+			background: var(--color-black);
+		}
+
+		input[type="checkbox"]:checked ~ .hamburgerLines .lineOne {
+			transform: rotate(45deg);
+		}
+
+		input[type="checkbox"]:checked ~ .hamburgerLines .lineTwo {
+			transform: scaleY(0);
+		}
+
+		input[type="checkbox"]:checked ~ .hamburgerLines .lineThree {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.mobileNavContainer,
+	.checkbox,
+	.hamburgerLines,
+	.navTitle {
+		display: none;
+	}
+	.desktopNavContainer {
+		padding: rfs(1rem) rfs(10rem);
+		display: flex;
+		gap: rfs(10rem);
+		position: absolute;
+		align-items: center;
+		.navItemContainer {
+			display: flex;
+			flex-direction: row;
+			list-style-type: none;
+			background-color: transparent;
+			justify-content: flex-start;
+			align-items: center;
+			gap: rfs(10rem);
+			.navItem {
+				a {
+					color: var(--color-white);
+					font-size: var(--font-size-title);
+				}
+			}
+		}
+	}
+}
+
+.desktopNavContainer,
+.mobileNavContainer {
+	.logoWrapper {
+		position: relative;
+		width: rfs(15rem);
+		height: rfs(15rem);
+		img {
+			filter: invert(63%) sepia(70%) saturate(257%) hue-rotate(354deg)
+				brightness(89%) contrast(86%);
+			object-fit: cover;
+		}
+	}
+	a {
+		text-decoration: none;
+	}
+}
