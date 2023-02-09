@@ -10,10 +10,13 @@ import PostBlurb from "@/src/components/PostPreviewBlurb";
 import { getPreviewPostData } from "@/src/api/fetchData/fetchPost";
 
 export default async function Home() {
-	const heroImageQuery = await getMediaData(4);
-	const brandonHeadshotQuery = await getMediaData(5);
+	const [heroImageQuery, brandonHeadshotQuery, consultationBannerQuery] =
+		await getMediaData([4, 5, 7]);
 	const heroImageUrl = urlBuilder(heroImageQuery.attributes.url);
 	const brandonHeadshotUrl = urlBuilder(brandonHeadshotQuery.attributes.url);
+	const consultationBannerUrl = urlBuilder(
+		consultationBannerQuery.attributes.url
+	);
 	const postData = await getPreviewPostData();
 	return (
 		<>
@@ -146,6 +149,19 @@ export default async function Home() {
 							/>
 						);
 					})}
+				</div>
+			</section>
+			<section
+				className={styles.sectionFive}
+				style={{
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${consultationBannerUrl})`,
+					backgroundSize: "cover",
+				}}
+			>
+				<div className={styles.row}>
+					<h3>Free Consultation</h3>
+					<p>Let us know what your needs are, and lets discuss how Orr Law can help you.</p>
+					<ButtonPrimary href="/contact" color="var(--color-white)" fontsize="var(--font-size-small)" background="var(--color-gold)" borderwidth="0">Contact</ButtonPrimary>
 				</div>
 			</section>
 		</>

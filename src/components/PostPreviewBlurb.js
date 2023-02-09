@@ -29,6 +29,9 @@ const PreviewPostBlurb = styled.div`
 		gap: var(--sizing-xs);
         padding: var(--sizing-medium);
 	}
+	p {
+		font: 500 var(--font-size-body) var(--font-family-content);
+	}
 `;
 
 const PostBlurb = (props) => {

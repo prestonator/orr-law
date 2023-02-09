@@ -7,7 +7,7 @@ import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 
 export default async function Navbar() {
 	const navItemData = await getNavData();
-	const navLogoData = await getMediaData(3);
+	const [navLogoData] = await getMediaData([3]);
 	const navItems = navItemData.data.renderNavigation;
 	const navLogo = navLogoData.attributes;
 	return (

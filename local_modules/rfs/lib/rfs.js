@@ -8,7 +8,7 @@ const BASE_RFS_ERROR = 'baseValue option is invalid, it should be set in `px` or
 module.exports = class {
   constructor(opts) {
     const defaultOptions = {
-      baseValue: 20,
+      baseValue: 16,
       unit: 'rem',
       breakpoint: 4000,
       breakpointUnit: 'px',
@@ -96,9 +96,9 @@ module.exports = class {
           }
 
           // Only add responsive function if needed
-          if (!fluid || this.opts.baseValue >= Math.abs(value) || this.opts.factor <= 1 || !this.opts.enableRfs) {
-            return this.renderValue(value);
-          }
+           if (!fluid || this.opts.baseValue >= Math.abs(value) || this.opts.factor <= 1 || !this.opts.enableRfs) {
+             return this.renderValue(value);
+           }
 
           // Calculate base and difference
           let baseValue = this.opts.baseValue + ((Math.abs(value) - this.opts.baseValue) / this.opts.factor);
@@ -129,8 +129,9 @@ module.exports = class {
 
   // Return the value without `rfs()` function
   // eg. `4px rfs(32px)` => `.25rem 2rem`
+  // change false to true
   value(value) {
-    return this.process(value, false);
+    return this.process(value, true);
   }
 
   // Convert `rfs()` function to fluid css
