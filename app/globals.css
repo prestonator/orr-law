@@ -30,12 +30,14 @@
 	--sizing-xxxl: rfs(25rem);
 	--sizing-xxl: rfs(10rem);
 	--sizing-xl: rfs(7.5rem);
+	--sizing-hamburger: rfs(5.5rem);
 	--sizing-large: rfs(5rem);
 	--sizing-medium: rfs(2.5rem);
 	--sizing-small: rfs(1.5rem);
 	--sizing-xs: rfs(1rem);
 	--sizing-xxs: rfs(0.75rem);
 	--sizing-xxxs: rfs(0.5rem);
+	--sizing-section-border: rfs(20rem);
 }
 
 

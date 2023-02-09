@@ -50,7 +50,6 @@
 
 .sectionThree {
 	padding: 0 var(--sizing-xl);
-
 	.colOne {
 		grid-column: 1 / span 1;
 		grid-row: 1 / span 4;

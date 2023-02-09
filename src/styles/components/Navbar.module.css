@@ -20,7 +20,7 @@
 		}
 		.logoWrapper {
 			align-self: flex-start;
-			margin: var(--sizing-small);
+			margin: var(--sizing-xxs) 0 0 var(--sizing-xs);
 			z-index: 2;
 		}
 		.checkbox {
@@ -28,7 +28,7 @@
 			display: block;
 			height: 32px;
 			width: 32px;
-			top: rfs(5rem);
+			top: var(--sizing-hamburger);
 			right: rfs(5rem);
 			z-index: 5;
 			opacity: 0;
@@ -39,7 +39,7 @@
 			height: 26px;
 			width: 32px;
 			position: absolute;
-			top: var(--sizing-xl);
+			top: var(--sizing-hamburger);
 			right: var(--sizing-xl);
 			z-index: 2;
 			display: flex;

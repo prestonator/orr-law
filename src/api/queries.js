@@ -85,3 +85,28 @@ query Posts {
     }
   }
 }`;
+
+export const AuthorQuery = `
+query Author($authorId: ID) {
+  author(id: $authorId) {
+    data {
+      attributes {
+        name
+        email
+        phone
+        title
+        location
+        slug
+        bio
+        headshot {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
