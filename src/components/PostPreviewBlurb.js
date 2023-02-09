@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Image from "next/image";
-import urlBuilder from "./urlBuilder";
+import urlBuilder from "../utils/urlBuilder";
 
 const PreviewPostBlurb = styled.div`
 	flex-basis: var(--sizing-super);

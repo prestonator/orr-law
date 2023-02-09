@@ -104,8 +104,12 @@
 			font: 600 var(--font-size-medium) var(--font-family-fancy);
 		}
 	}
+	.rowTwo {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
 }
-
 
 @media screen and (min-width: 600px) {
 	.sectionThree {

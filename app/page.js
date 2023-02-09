@@ -6,13 +6,15 @@ import ButtonPrimary from "@/src/components/ButtonPrimary";
 import InfoBlurb from "@/src/components/InfoBlurb";
 import { GiScales, GiFamilyHouse } from "react-icons/gi";
 import { HiOutlinePresentationChartLine } from "react-icons/hi";
-import PostBlurbSection from "@/src/components/PostPreviewSection";
+import PostBlurb from "@/src/components/PostPreviewBlurb";
+import { getPreviewPostData } from "@/src/api/fetchData/fetchPost";
 
 export default async function Home() {
 	const heroImageQuery = await getMediaData(4);
 	const brandonHeadshotQuery = await getMediaData(5);
 	const heroImageUrl = urlBuilder(heroImageQuery.attributes.url);
 	const brandonHeadshotUrl = urlBuilder(brandonHeadshotQuery.attributes.url);
+	const postData = await getPreviewPostData();
 	return (
 		<>
 			<section
@@ -133,7 +135,17 @@ export default async function Home() {
 					<span>Blog</span>
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
-					<PostBlurbSection />
+					{postData.map((post) => {
+						return (
+							<PostBlurb
+								key={post.attributes.slug}
+								title={post.attributes.title}
+								image={post.attributes.image.data.attributes.url}
+								alt={post.attributes.image.data.attributes.alternativeText}
+								slug={post.attributes.slug}
+							/>
+						);
+					})}
 				</div>
 			</section>
 		</>
