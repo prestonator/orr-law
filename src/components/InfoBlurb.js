@@ -7,6 +7,7 @@ const InfoBlurbContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+    justify-content: center;
     padding: var(--sizing-xs) var(--sizing-small);
 	text-align: center;
     flex-basis: var(--sizing-super);
@@ -22,7 +23,8 @@ const InfoBlurbContainer = styled.div`
 	.textContainer {
         color: ${(props) => props.textColor || "var(--color-white)"};
         h2 {
-            font: 600 var(--font-size-title) var(--font-family-fancy);
+            font: 600 ${(props) => props.titleSize || "var(--font-size-title)"} var(--font-family-fancy);
+            margin-bottom: ${(props) => props.titleMargin || "var(--sizing-xs)"};
         }
         p {
             font: 500 var(--font-size-body) var(--font-family-content);
@@ -41,9 +43,9 @@ const InfoBlurbContainer = styled.div`
     }
 `;
 
-const InfoBlurb = ({ title, text, icon, background, textColor, iconColor }) => {
+const InfoBlurb = ({ title, text, icon, background, textColor, iconColor, titleMargin, titleSize }) => {
 	return (
-		<InfoBlurbContainer className="infoBlurb" background={background} textColor={textColor} iconColor={iconColor}>
+		<InfoBlurbContainer className="infoBlurb" background={background} textColor={textColor} iconColor={iconColor} titleMargin={titleMargin} titleSize={titleSize}>
 			<div className="iconWrapper">{icon}</div>
 			<div className="textContainer">
 				<h2>{title}</h2>
