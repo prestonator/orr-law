@@ -39,7 +39,7 @@ const PostBlurb = (props) => {
 		<PreviewPostBlurb>
 			<Link href={`/blog/${props.slug}`} className="blurbContainer">
 				<div className="imageWrapper">
-					<Image src={urlBuilder(props.image)} alt={props.alt} fill />
+					<Image src={urlBuilder(props.image)} alt={props.alt} fill sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto" />
 				</div>
 				<div className="textContainer">
 					<p className="textExcerpt">{`${props.title}`}</p>

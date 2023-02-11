@@ -6,6 +6,7 @@ import { GiScales, GiFamilyHouse } from "react-icons/gi";
 import { HiOutlinePresentationChartLine } from "react-icons/hi";
 import InfoBlurb from "@/src/components/InfoBlurb";
 
+
 export default async function PracticeAreas() {
 	const [heroImageData] = await getMediaData([8]);
 	const heroImageUrl = urlBuilder(heroImageData.attributes.url);

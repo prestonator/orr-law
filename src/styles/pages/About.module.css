@@ -1,7 +1,3 @@
-.sectionBorder {
-	border-top: var(--sizing-section-border) solid var(--color-blue);
-}
-
 .sectionOne {
     padding-top: var(--sizing-large);
 	.row {

@@ -7,7 +7,8 @@ import InfoBlurb from "@/src/components/InfoBlurb";
 import { GiScales, GiFamilyHouse } from "react-icons/gi";
 import { HiOutlinePresentationChartLine } from "react-icons/hi";
 import PostBlurb from "@/src/components/PostPreviewBlurb";
-import { getPreviewPostData } from "@/src/api/fetchData/fetchPost";
+import { getPostData } from "@/src/api/fetchData/fetchPost";
+import { PageWrapper } from "@/src/utils/pageWrapper";
 
 export default async function Home() {
 	const [heroImageQuery, brandonHeadshotQuery, consultationBannerQuery] =
@@ -17,7 +18,7 @@ export default async function Home() {
 	const consultationBannerUrl = urlBuilder(
 		consultationBannerQuery.attributes.url
 	);
-	const postData = await getPreviewPostData();
+	const { previewPostData } = await getPostData();
 	return (
 		<>
 			<section
@@ -107,6 +108,7 @@ export default async function Home() {
 							alt={brandonHeadshotQuery.attributes.alternativeText}
 							fill
 							priority
+							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
 					</div>
 				</div>
@@ -138,7 +140,7 @@ export default async function Home() {
 					<span>Blog</span>
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
-					{postData.map((post) => {
+					{previewPostData.map((post) => {
 						return (
 							<PostBlurb
 								key={post.attributes.slug}

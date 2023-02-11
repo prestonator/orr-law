@@ -86,6 +86,54 @@ query Posts {
   }
 }`;
 
+export const PostBySlugQuery = `
+query Posts($filters: PostFiltersInput) {
+  posts(filters: $filters) {
+    data {
+      attributes {
+        slug
+        title
+        datePublished
+        content
+        excerpt
+        image {
+          data {
+            attributes {
+              alternativeText
+              url
+            }
+          }
+        }
+        categories {
+          data {
+            attributes {
+              category
+              slug
+            }
+          }
+        }
+        author {
+          data {
+            attributes {
+              name
+              slug
+              headshot {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+       }
+      }
+    }
+  }
+`;
+
 export const AuthorQuery = `
 query Author($authorId: ID) {
   author(id: $authorId) {
