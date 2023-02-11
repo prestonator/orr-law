@@ -89,3 +89,27 @@
 		line-height: 1.8em;
 	}
 }
+
+@media screen and (max-width: 800px) {
+	.sectionOne {
+		flex-direction: column-reverse;
+		padding-top: 0;
+		.colOne {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+            flex-basis: auto;
+			text-align: center;
+            width: rfs(125rem)
+		}
+		.colTwo {
+			width: 100%;
+		}
+		.colTwo .imageWrapper {
+			width: 100%;
+			img {
+				border: none;
+			}
+		}
+	}
+}
