@@ -12,6 +12,11 @@
 	}
 	.colTwo {
 		flex-basis: var(--sizing-super);
+		.textContainer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 		.imageWrapper {
 			position: relative;
 			width: 100%;
