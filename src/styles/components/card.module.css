@@ -1,0 +1,274 @@
+.blogCard {
+	max-width: 550px;
+	width: 100%;
+	height: 500px;
+	position: absolute;
+	font-family: "Droid Serif", serif;
+	color: #fff;
+	top: 20%;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 0px;
+	box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	transition: all 0.4s;
+	background: url(https://unsplash.it/600/800?image=1061) center no-repeat;
+	background-size: 100%;
+}
+
+.blogCard .buttonLink {
+	color: #fff;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.blogCard .colorOverlay {
+	background: rgba(64, 84, 94, 0.5);
+	width: 550px;
+	height: 500px;
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.blogCard .gradientOverlay {
+	background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+	width: 550px;
+	height: 500px;
+	position: absolute;
+	top: 350px;
+	left: 0;
+	z-index: 15;
+}
+
+.blogCard:hover {
+	box-shadow: 0px 18px 20px -9px rgba(0, 10, 30, 0.75);
+}
+
+.blogCard:hover .cardInfo {
+	opacity: 1;
+	bottom: 100px;
+}
+.blogCard:hover .colorOverlay {
+	background: rgba(64, 64, 70, 0.8);
+}
+.blogCard:hover .titleContent {
+	margin-top: 70px;
+}
+
+.titleContent {
+	text-align: center;
+	margin: 170px 0 0 0;
+	position: absolute;
+	z-index: 20;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transition: all 0.6s;
+}
+
+.blogCard:hover .titleHeading:after {
+	animation: changeLetter 0.3s 1 linear;
+	width: 80%;
+}
+
+.blogCard .titleHeading {
+	font-size: 1.9em;
+	font-weight: 400;
+	letter-spacing: 1px;
+	font-family: "Abril Fatface", serif;
+	margin-bottom: 0;
+	display: inline-block;
+}
+
+.titleHeading {
+	content: " ";
+	display: block;
+	width: 10%;
+	height: 2px;
+	margin: 20px auto;
+	border: 0;
+	background: #bda26b;
+	transition: all 0.2s;
+}
+
+@keyframes changeLetter {
+	0% {
+		width: 10%;
+	}
+	100% {
+		width: 80%;
+	}
+}
+
+.intro {
+	width: 170px;
+	margin: 0 auto;
+	color: #ddd;
+	font-style: italic;
+	line-height: 18px;
+}
+
+.intro .introContent {
+	color: #ddd;
+}
+
+.intro .introContent:hover {
+	text-decoration: underline;
+}
+
+.cardInfo {
+	box-sizing: border-box;
+	padding: 0;
+	width: 100%;
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	margin: 0 auto;
+	padding: 0 50px;
+	font-style: 16px;
+	line-height: 24px;
+	z-index: 20;
+	opacity: 0;
+	transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.cardInfo .buttonLink {
+	display: block;
+	width: 100px;
+	margin: 15px auto;
+	background: #fff;
+	color: #444;
+	padding: 3px 10px;
+	border-radius: 2px;
+	font-size: 0.8em;
+}
+
+.cardInfo .buttonLink:hover {
+	background: #8e7c49;
+	color: #fff;
+}
+
+.cardInfo .buttonLink:hover .learnIcon {
+	filter: brightness(10);
+	opacity: 1;
+}
+
+.utilityInfo {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	z-index: 20;
+	width: 100%;
+	text-align: left;
+}
+
+.utilityInfo:after {
+	content: " ";
+	background: url(https://rawcdn.githack.com/Nodws/NodPen/ffad95aa5244b4b09a3c7c1508a018959bbedb7e/postItem/licons.svg)
+		center no-repeat;
+	background-size: 30px auto;
+	display: block;
+	opacity: 0.4;
+	position: absolute;
+	bottom: 25px;
+	right: 15px;
+	width: 30px;
+	height: 15px;
+}
+
+.utilityInfo .metaTags:hover {
+	text-decoration: underline;
+}
+
+.utilityList {
+	list-style-type: none;
+	margin: 0 0 10px 20px;
+	padding: 0;
+	width: 100%;
+}
+
+.utilityList .utilityListItem {
+	margin: 0 5px 0 0;
+	padding: 3px 0 15px 0px;
+	display: inline-block;
+
+	font-size: 0.8em;
+}
+
+.licon {
+	position: relative;
+	width: 23px;
+	height: 15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.licon:before {
+	content: "";
+	background: url(https://rawcdn.githack.com/Nodws/NodPen/ffad95aa5244b4b09a3c7c1508a018959bbedb7e/postItem/licons.svg?) -2px -6px
+		no-repeat;
+	background-size: 250px;
+	width: 26px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	top: -3px;
+	left: 0;
+}
+
+.iconBlack {
+	filter: brightness(0);
+	opacity: 0.6;
+}
+
+.iconDat:before {
+	background-position: -94px -7px;
+}
+
+.iconTag:before {
+	background-position: -33px -6px;
+}
+
+@media (max-width: 750px) {
+	.utilityInfo {
+		text-align: center;
+	}
+	.utilityInfo ul {
+		width: 100%;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.utilityInfo li {
+		width: 49%;
+		display: inline-block;
+		box-sizing: border-box;
+		margin: 0;
+	}
+}
+
+@media (max-width: 500px) {
+	.utilityInfo li:last-of-type {
+		width: 100%;
+	}
+	.cardInfo {
+		display: none;
+	}
+	.blogCard:hover .titleContent,
+	.titleContent {
+		margin-top: 40px;
+	}
+	.blogCard {
+		height: 300px;
+	}
+	.blogCard h3 {
+		font-size: 1.3em;
+	}
+	.intro {
+		font-size: 0.8em;
+	}
+}
