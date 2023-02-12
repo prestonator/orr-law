@@ -1,6 +1,6 @@
 import { getPostData } from "@/src/api/fetchData/fetchPost";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
-import BlogCard from "@/src/components/blogCardNew";
+import BlogCard from "@/src/components/BlogCard";
 import styles from "@/src/styles/pages/Blog.module.css";
 import urlBuilder from "@/src/utils/urlBuilder";
 
@@ -49,6 +49,8 @@ export default async function Page() {
 					))}
 				</div>
 			</section>
+			<section className={styles.sectionThree}>
+				</section>
 		</>
 	);
 }

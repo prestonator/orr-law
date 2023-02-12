@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Button = styled.button`
 	cursor: pointer;
 	color: ${(props) => props.color || "var(--color-black)"};
-	border: ${(props) => props.borderwidth || "1px"} solid ${(props) => props.color || "rgba(0, 0, 0, 0.35)"};
+	border: ${(props) => props.borderwidth || "1px"} solid ${(props) => props.bordercolor || "rgba(0, 0, 0, 0.35)"};
 	background: ${(props) => props.background || "transparent"};
 	transition: var(--default-hover-transition);
 	font: 600 ${(props) => props.fontsize || "var(--font-size-medium)"} var(--font-family-btn);
@@ -52,6 +52,7 @@ const ButtonPrimary = (props) => {
 				fontsize={props.fontsize}
 				borderwidth={props.borderwidth}
 				background={props.background}
+				bordercolor={props.bordercolor}
 			>
 				{props.children}
 				<BsArrowRight />
