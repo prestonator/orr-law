@@ -5,6 +5,7 @@
 		align-items: center;
 		padding: var(--sizing-xxxl) 0;
         text-align: center;
+        color: var(--color-white);
         h1 {
 			font: 500 var(--font-size-xl) var(--font-family-fancy);
 			margin-bottom: var(--sizing-medium);
