@@ -25,7 +25,7 @@ const BlogCard = (props) => {
 					<span className={styles.introContent}>Written by {author}</span>
 			</div>
 			<div className={styles.cardInfo}>
-				<ReactMarkdown></ReactMarkdown>
+				<ReactMarkdown>{`${excerpt.substring(0, 50)}...`}</ReactMarkdown>
 				<div className={`${styles.buttonLink}`}>
 					<ButtonPrimary
 						bordercolor="var(--color-gold)"

@@ -27,7 +27,27 @@ export default async function Page() {
 			</section>
 			<section className={styles.sectionTwo}>
 				<div className={`${styles.row}`}>
-					{allPostData.map((post) => (
+					{allPostData.slice(0, 1).map((post) => (
+						<div
+							className={`${styles.blogCardContainer} ${styles.blogCardContainerWide}`}
+							key={post.attributes.slug}
+						>
+							<BlogCard
+								className={styles.blogCardContainer}
+								title={post.attributes.title}
+								author={post.attributes.author.data.attributes.name}
+								excerpt={post.attributes.excerpt}
+								date={post.attributes.datePublished}
+								image={post.attributes.image.data.attributes.url}
+								imageAlt={post.attributes.image.data.attributes.alternativeText}
+								slug={post.attributes.slug}
+								categories={post.attributes.categories.data
+									.map((item) => item.attributes.category)
+									.join(", ")}
+							/>
+						</div>
+					))}
+					{allPostData.slice(1).map((post) => (
 						<div
 							className={`${styles.blogCardContainer}`}
 							key={post.attributes.slug}
@@ -49,8 +69,7 @@ export default async function Page() {
 					))}
 				</div>
 			</section>
-			<section className={styles.sectionThree}>
-				</section>
+			<section className={styles.sectionThree}></section>
 		</>
 	);
 }

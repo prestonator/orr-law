@@ -20,7 +20,7 @@
 	--font-size-small: rfs(0.75rem);
 	--font-family-fancy: "EB Garamond", serif;
 	--font-family-heading: "Poppins", sans-serif;
-	--font-family-content: "Noto Sans", sans-serif;
+	--font-family-content: "Open Sans", sans-serif;
 	--default-hover-transition: all 0.3s ease-in-out;
 	--default-border-radius: 0.5rem;
 	--sizing-super-xl: rfs(100rem);
