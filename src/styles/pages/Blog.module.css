@@ -22,6 +22,7 @@
 		grid-template-columns: repeat(4, 1fr);
 		max-width: 90rem;
 		margin: 0 auto;
+        padding: 0 var(--sizing-xl);
 		.blogCardContainerWide {
 			grid-column: 1 / span 2;
 		}
@@ -33,4 +34,10 @@
 
 .sectionThree {
 	padding: 5rem 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .sectionTwo .row {
+        grid-template-columns: 1fr 1fr;
+    }
 }
