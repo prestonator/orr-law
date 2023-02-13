@@ -12,7 +12,7 @@ import { PageWrapper } from "@/src/utils/pageWrapper";
 
 export default async function Home() {
 	const [heroImageQuery, brandonHeadshotQuery, consultationBannerQuery] =
-		await getMediaData([4, 5, 7]);
+		await getMediaData([16, 5, 7]);
 	const heroImageUrl = urlBuilder(heroImageQuery.attributes.url);
 	const brandonHeadshotUrl = urlBuilder(brandonHeadshotQuery.attributes.url);
 	const consultationBannerUrl = urlBuilder(
