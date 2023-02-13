@@ -2,6 +2,8 @@ import "./globals.css";
 import { open_sans, eb_garamond } from "@/src/utils/fonts";
 import RenderNav from "@/src/components/RenderNav";
 import Navbar from "./Navbar";
+import Footer from "@/src/components/Footer";
+
 
 export default async function RootLayout({ children }) {
 	return (
@@ -12,6 +14,7 @@ export default async function RootLayout({ children }) {
 					<Navbar />
 				</RenderNav>
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
