@@ -10,11 +10,6 @@ import Footer from "@/src/components/Footer";
 
 export const metadata = {
 	title: "Orr Law, LLC",
-	viewport: {
-		width: "device-width",
-		initialScale: 1,
-		maximumScale: 1,
-	},
 	description: "Website for Orr Law, LLC",
 	icons: {
 		icon: "/favicon.svg",
