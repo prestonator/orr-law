@@ -17,7 +17,7 @@ export default function RenderNav({ children }) {
 
 	return (
 		<nav className={className}>
-			<input className={styles.checkbox} type="checkbox" name="" id="" />
+			<input className={styles.checkbox} type="checkbox" name="" id="" aria-label="Menu" />
 			<div className={styles.hamburgerLines}>
 				<span className={`${styles.line} ${styles.lineOne}`}></span>
 				<span className={`${styles.line} ${styles.lineTwo}`}></span>

@@ -5,12 +5,10 @@ import RenderNav from "@/src/components/RenderNav";
 import Navbar from "./Navbar";
 import Footer from "@/src/components/Footer";
 
-
-
-
 export const metadata = {
 	title: "Orr Law, LLC",
 	description: "Website for Orr Law, LLC",
+	themeColor: "#c49b65",
 	icons: {
 		icon: "/favicon.svg",
 		shortcut: "/favicon.svg",
