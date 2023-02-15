@@ -8,3 +8,4 @@ export const getNavData = async () => {
 
 	return data;
 };
+
