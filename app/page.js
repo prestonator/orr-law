@@ -31,7 +31,7 @@ export default async function Home() {
 				<div className={styles.col}>
 					<div className={styles.row}>
 						<h1>
-							Welcome to Orr <br />& Associates
+							Welcome to Poor <br />& Associates
 						</h1>
 					</div>
 					<div className={styles.row}>
