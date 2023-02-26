@@ -1,7 +1,7 @@
 "use client";
 import { BsHouseDoor, BsPeople } from "react-icons/bs";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { Text, Group, Accordion } from "@mantine/core";
+import { Text, Group, Accordion, createStyles } from "@mantine/core";
 
 const mainServices = [
 	{
@@ -27,6 +27,46 @@ const mainServices = [
 	},
 ];
 
+const useStyles = createStyles((theme) => ({
+	root: {
+		backgroundColor:
+			theme.colorScheme === "dark"
+				? theme.colors.dark[6]
+				: theme.colors.gray[0],
+		borderRadius: theme.radius.sm,
+	},
+
+	item: {
+		backgroundColor:
+			theme.colorScheme === "dark"
+				? theme.colors.dark[6]
+				: theme.colors.gray[0],
+		border: "1px solid transparent",
+		position: "relative",
+		zIndex: 0,
+		transition: "transform 150ms ease",
+
+		"&[data-active]": {
+			transform: "scale(1.03)",
+			backgroundColor:
+				theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+			boxShadow: theme.shadows.md,
+			borderColor:
+				theme.colorScheme === "dark"
+					? theme.colors.dark[4]
+					: theme.colors.gray[2],
+			borderRadius: theme.radius.md,
+			zIndex: 1,
+		},
+	},
+
+	chevron: {
+		"&[data-rotate]": {
+			transform: "rotate(-90deg)",
+		},
+	},
+}));
+
 const AccordionLabel = ({ title, icon, description }) => {
 	return (
 		<Group noWrap>
@@ -40,16 +80,28 @@ const AccordionLabel = ({ title, icon, description }) => {
 };
 
 const AccordionDemo = () => {
+	const { classes } = useStyles();
+	const services = mainServices.map((service) => (
+		<Accordion.Item value={service.id} key={service.id}>
+			<Accordion.Control>
+				<AccordionLabel {...service} />
+			</Accordion.Control>
+			<Accordion.Panel>
+				<Text size="sm">{service.description}</Text>
+			</Accordion.Panel>
+		</Accordion.Item>
+	));
+
 	return (
-		<Accordion variant="contained">
-			{mainServices.map((service) => (
-				<Accordion.Item value={service.id} key={service.id}>
-					<Accordion.Control>
-						<AccordionLabel {...service} />
-					</Accordion.Control>
-					<Accordion.Panel>{service.description}</Accordion.Panel>
-				</Accordion.Item>
-			))}
+		<Accordion
+			sx={{ maxWidth: 720 }}
+			mx="auto"
+			variant="filled"
+			defaultValue="customization"
+			classNames={classes}
+			className={classes.root}
+		>
+			{services}
 		</Accordion>
 	);
 };
