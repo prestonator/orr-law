@@ -2,10 +2,8 @@ import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import urlBuilder from "@/src/utils/urlBuilder";
 import ButtonPrimary from "@/src/components/ButtonPrimary";
 import styles from "@/src/styles/pages/PracticeAreas.module.css";
-import { GiScales, GiFamilyHouse } from "react-icons/gi";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
+import Demo from "./Accordion";
 import InfoBlurb from "@/src/components/InfoBlurb";
-
 
 export default async function PracticeAreas() {
 	const [heroImageData] = await getMediaData([8]);
@@ -35,7 +33,7 @@ export default async function PracticeAreas() {
 							color="var(--color-white)"
 							fontsize="var(--font-size-small)"
 							background="var(--color-gold)"
-							borderwidth="0"
+							borderWidth="0"
 						>
 							Request Consultation
 						</ButtonPrimary>
@@ -49,36 +47,7 @@ export default async function PracticeAreas() {
                         <hr />
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}>
-						<InfoBlurb
-							title="Estate Planning"
-							text="Specializing in estate planning, our law firm provides personalized solutions for clients to secure their assets for future generations."
-							icon={<GiFamilyHouse />}
-							background="var(--color-white)"
-							iconColor="var(--color-gold)"
-							textColor="var(--color-black)"
-							titleMargin="var(--sizing-medium)"
-							titleSize="var(--font-size-heading)"
-						/>
-						<InfoBlurb
-							title="Contract Review and Formation"
-							text="Ensure the protection and growth of your business with our comprehensive contract review services."
-							icon={<GiScales />}
-							background="var(--color-white)"
-							iconColor="var(--color-gold)"
-							textColor="var(--color-black)"
-							titleMargin="var(--sizing-medium)"
-							titleSize="var(--font-size-heading)"
-						/>
-						<InfoBlurb
-							title="Business Formation"
-							text="Orr law assist clients in successfully forming and establishing their businesses, navigating complex legal processes with ease."
-							icon={<HiOutlinePresentationChartLine />}
-							background="var(--color-white)"
-							iconColor="var(--color-gold)"
-							textColor="var(--color-black)"
-							titleMargin="var(--sizing-medium)"
-							titleSize="var(--font-size-heading)"
-						/>
+						<Demo />
 					</div>
 				</div>
 			</section>

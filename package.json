@@ -9,6 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.10.4",
+    "@mantine/form": "^5.10.4",
+    "@mantine/hooks": "^5.10.4",
+    "@mantine/next": "^5.10.4",
+    "@mantine/notifications": "^5.10.4",
     "@next/font": "13.1.7-canary.11",
     "autoprefixer": "^10.4.13",
     "eslint": "8.33.0",

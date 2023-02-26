@@ -11,8 +11,8 @@
 		}
 		.imageWrapper {
 			position: relative;
-			width: 100%;
-			height: var(--sizing-super);
+			width: auto;
+			height: rfs(45rem);
 			grid-column: 2 / span 1;
 			grid-row: 1 / span 4;
 			margin: var(--sizing-small) var(--sizing-small) var(--sizing-medium)

@@ -6,8 +6,8 @@ import Navbar from "./Navbar";
 import Footer from "@/src/components/Footer";
 
 export const metadata = {
-	title: "Orr Law, LLC",
-	description: "Website for Orr Law, LLC",
+	title: "Orr Law, PLLC",
+	description: "Website for Orr Law, PLLC",
 	themeColor: "#c49b65",
 	icons: {
 		icon: "/favicon.svg",

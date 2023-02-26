@@ -3,5 +3,8 @@
         "postcss": "css",
         "javascript": "javascriptreact"
     },
-    "editor.snippetSuggestions": "top"
+    "editor.snippetSuggestions": "top",
+    "cSpell.words": [
+        "mantine"
+    ]
 }

@@ -43,8 +43,4 @@
 			width: var(--sizing-super);
 		}
 	}
-	.rowTwo {
-		flex-direction: row;
-		gap: var(--sizing-small);
-	}
 }

@@ -153,19 +153,6 @@ export default async function Home() {
 					})}
 				</div>
 			</section>
-			<section
-				className={styles.sectionFive}
-				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${consultationBannerUrl})`,
-					backgroundSize: "cover",
-				}}
-			>
-				<div className={styles.row}>
-					<h3>Free Consultation</h3>
-					<p>Let us know what your needs are, and lets discuss how Orr Law can help you.</p>
-					<ButtonPrimary href="/contact" color="var(--color-white)" fontsize="var(--font-size-small)" background="var(--color-gold)" borderwidth="0">Contact</ButtonPrimary>
-				</div>
-			</section>
 		</>
 	);
 }
