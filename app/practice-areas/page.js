@@ -6,14 +6,13 @@ import styles from "@/src/styles/pages/PracticeAreas.module.css";
 import Demo from "./Accordion";
 
 export default async function PracticeAreas() {
-	const [heroImageData] = await getMediaData([8]);
-	const heroImageUrl = urlBuilder(heroImageData.attributes.url);
+	const [heroImageUrl] = await getMediaData([8]);
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${heroImageUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${heroImageUrl.fullUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
@@ -47,7 +46,7 @@ export default async function PracticeAreas() {
                         <hr />
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}>
-						<Demo />
+						
 					</div>
 				</div>
 			</section>

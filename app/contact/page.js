@@ -1,6 +1,5 @@
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import styles from "@/src/styles/pages/Contact.module.css";
-import urlBuilder from "@/src/utils/urlBuilder";
 import {
 	BsFillChatLeftFill,
 	BsFillTelephoneOutboundFill,
@@ -8,14 +7,13 @@ import {
 } from "react-icons/bs";
 
 export default async function Contact() {
-	const [mapData] = await getMediaData([15]);
-	const mapUrl = urlBuilder(mapData.attributes.url);
+	const [mapUrl] = await getMediaData([15]);
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${mapUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${mapUrl.fullUrl})`,
 					backgroundSize: "cover",
 				}}
 			>

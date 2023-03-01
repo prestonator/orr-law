@@ -6,14 +6,13 @@ import urlBuilder from "@/src/utils/urlBuilder";
 
 export default async function Page() {
 	const allPostData = await fetchPostData();
-	const [blogHeroQuery] = await getMediaData([9]);
-	const blogHeroUrl = urlBuilder(blogHeroQuery.attributes.url);
+	const [blogHeroUrl] = await getMediaData([9]);
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${blogHeroUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${blogHeroUrl.fullUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
