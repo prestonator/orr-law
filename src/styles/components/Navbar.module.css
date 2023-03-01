@@ -120,7 +120,7 @@
 		display: none;
 	}
 	.desktopNavContainer {
-		padding: rfs(1rem) rfs(10rem);
+		padding: rfs(5rem) rfs(10rem);
 		display: flex;
 		gap: rfs(10rem);
 		position: absolute;

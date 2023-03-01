@@ -1,14 +1,19 @@
 import styles from "@/src/styles/pages/About.module.css";
 import Image from "next/image";
-import urlBuilder from "@/src/utils/urlBuilder";
 import { getAuthorData } from "@/src/api/fetchData/fetchAuthor";
 import ReactMarkdown from "react-markdown";
-import { PageWrapper } from "@/src/utils/pageWrapper";
+import Footer from "@/src/components/Footer";
+import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
+
+async function getTemplateData() {
+	const templateData = await getPageTemplateData("about");
+	return templateData;
+}
 
 export default async function About() {
 	const authorData = await getAuthorData("1");
 	const author = authorData.attributes;
-	// console.log(author);
+	const templateData = await getTemplateData();
 
 	return (
 		<>
@@ -17,14 +22,14 @@ export default async function About() {
 				<div className={styles.row}>
 					<div className={styles.heading}>
 						<h1>
-							<span style={{ color: "var(--color-gold)" }}>About</span>{" "}
-							{author.name}
+							<span style={{ color: "var(--color-gold)" }}>{templateData.pageHeading}</span>{" "}
+							{templateData.pageSubHeading}
 						</h1>
 					</div>
 					<div className={styles.imageWrapper}>
 						<Image
-							src={urlBuilder(author.headshot.data.attributes.url)}
-							alt={author.headshot.data.attributes.alternativeText}
+							src={templateData.heroImageUrl}
+							alt={templateData.heroImageAlt}
 							fill
 							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
 						/>
@@ -34,6 +39,12 @@ export default async function About() {
 					>{`${author.bio}`}</ReactMarkdown>
 				</div>
 			</section>
+			<Footer
+				icons={templateData.icons}
+				copyright={templateData.copyrightNotice}
+				links={templateData.links}
+				footerQuote={templateData.footerQuote}
+			/>
 		</>
 	);
 }
