@@ -1,12 +1,11 @@
 import StyledComponentsRegistry from "@/lib/registry";
 import "./globals.css";
-import { open_sans, eb_garamond } from "@/src/utils/fonts";
 import RenderNav from "@/src/components/RenderNav";
 import Navbar from "./Navbar";
 
 export const metadata = {
-	title: "Orr Law, P.L.L.C.",
-	description: "Website for Orr Law, P.L.L.C.",
+	title: "Orr Law.",
+	description: "Website for Orr Law.",
 	themeColor: "#c49b65",
 	icons: {
 		icon: "/favicon.svg",

@@ -3,7 +3,6 @@ import { getNavData } from "@/src/api/fetchData/fetchNav";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import Link from "next/link";
 import Image from "next/image";
-import urlBuilder from "@/src/utils/urlBuilder";
 
 async function getNavigationData() {
 	const navItemData = await getNavData();

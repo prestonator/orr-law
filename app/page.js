@@ -11,7 +11,6 @@ const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
 const InfoBlurb = dynamic(() => import("@/src/components/InfoBlurb"));
 const PostBlurb = dynamic(() => import("@/src/components/PostPreviewBlurb"));
 
-
 async function getMedia() {
 	const [brandonHeadshot] = await getMediaData([5]);
 	return {
@@ -55,28 +54,19 @@ export default async function Home() {
 			<section className={styles.sectionTwo}>
 				<div className={styles.col}>
 					<div className={`${styles.row} ${styles.rowOne}`}>
-						
-						<InfoBlurb
-							title="Contract Review"
-							text="Family issues, domestic relations, divorce, child custody and support, alimony, adoption."
-							icon={<GiScales />}
-							background="var(--color-blue)"
-							iconColor="var(--color-white)"
-						/>
-						<InfoBlurb
-							title="Estate Law"
-							text="Drafting and reviewing wills/trusts, probate and estate administration, and estate dispute litigation."
-							icon={<GiFamilyHouse />}
-							background="var(--color-blue)"
-							iconColor="var(--color-white)"
-						/>
-						<InfoBlurb
-							title="Business Formation"
-							text="Learn more about the cases Orr & Associates handles, and see how we can help you"
-							icon={<HiOutlinePresentationChartLine />}
-							background="var(--color-blue)"
-							iconColor="var(--color-white)"
-						/>
+						{templateData.services.map((service) => {
+							return (
+								<InfoBlurb
+									key={service.id}
+									title={service.title}
+									text={service.content}
+									icon={service.icon.data.attributes.url}
+									iconAlt={service.icon.data.attributes.alternativeText}
+									background="var(--color-blue)"
+									iconColor="var(--color-white)"
+								/>
+							);
+						})}
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}>
 						<ButtonPrimary
@@ -108,15 +98,16 @@ export default async function Home() {
 					<h3>Brandon Orr</h3>
 					<p>Serving Oklahoma City and surrounding areas</p>
 					<p>
-						We specialize in making the legal process affordable and accessible
-						for everyone. We understand that estate planning and contract law
-						can be complex and overwhelming, which is why we take the time to
-						clearly explain the process and guide you through every step.
+						Brandon can help with making the legal process affordable and
+						accessible for everyone. We understand that estate planning and
+						contract law can be complex and overwhelming, which is why we take
+						the time to clearly explain the process and guide you through every
+						step.
 					</p>
 				</div>
 				<div className={`${styles.col} ${styles.colThree}`}>
 					<p>
-						At Orr Law Firm, we believe that everyone deserves access to quality
+						At Orr Law, we believe that everyone deserves access to quality
 						legal representation, which is why we offer competitive rates and
 						flexible payment plans. Whether you are a small business owner, an
 						individual, or a family, we are here to help you protect your assets

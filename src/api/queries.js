@@ -178,8 +178,17 @@ query PageTemplates($filters: PageFiltersInput) {
           }
           ... on ComponentBlocksServiceCard {
             services {
+              id
               title
               content
+              icon {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
             }
           }
         }
