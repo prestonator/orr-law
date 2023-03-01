@@ -1,26 +1,31 @@
 import { fetchPostData } from "@/src/api/fetchData/blogAPI";
-import { getMediaData } from "@/src/api/fetchData/fetchMedia";
+import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
+import Footer from "@/src/components/Footer";
 import BlogCard from "@/src/components/BlogCard";
 import styles from "@/src/styles/pages/Blog.module.css";
-import urlBuilder from "@/src/utils/urlBuilder";
+
+async function getTemplateData() {
+	const templateData = await getPageTemplateData("blog");
+	return templateData;
+}
 
 export default async function Page() {
 	const allPostData = await fetchPostData();
-	const [blogHeroUrl] = await getMediaData([9]);
+	const templateData = await getTemplateData();
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${blogHeroUrl.fullUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${templateData.heroImageUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
 				<div className={styles.row}>
 					<h1>
-						Blog Posts
+						{templateData.pageHeading}
 						<br />&<br />
-						Current News
+						{templateData.pageSubHeading}
 					</h1>
 				</div>
 			</section>
@@ -69,6 +74,12 @@ export default async function Page() {
 				</div>
 			</section>
 			<section className={styles.sectionThree}></section>
+			<Footer
+				icons={templateData.icons}
+				copyright={templateData.copyrightNotice}
+				links={templateData.links}
+				footerQuote={templateData.footerQuote}
+			/>
 		</>
 	);
 }

@@ -1,4 +1,5 @@
-import { getMediaData } from "@/src/api/fetchData/fetchMedia";
+import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
+import Footer from "@/src/components/Footer";
 import styles from "@/src/styles/pages/Contact.module.css";
 import {
 	BsFillChatLeftFill,
@@ -6,22 +7,27 @@ import {
 	BsClock,
 } from "react-icons/bs";
 
+async function getTemplateData() {
+	const templateData = await getPageTemplateData("contact");
+	return templateData;
+}
+
 export default async function Contact() {
-	const [mapUrl] = await getMediaData([15]);
+	const templateData = await getTemplateData();
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${mapUrl.fullUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${templateData.heroImageUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
 				<div className={styles.row}>
 					<h1>
-						Contact Us
+						{templateData.pageHeading}
 						<br />
-						Now
+						{templateData.pageSubHeading}
 					</h1>
 				</div>
 			</section>
@@ -72,6 +78,12 @@ export default async function Contact() {
 					</form>
 				</div>
 			</section>
+			<Footer
+				icons={templateData.icons}
+				copyright={templateData.copyrightNotice}
+				links={templateData.links}
+				footerQuote={templateData.footerQuote}
+			/>
 		</>
 	);
 }
