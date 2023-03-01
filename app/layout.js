@@ -3,11 +3,10 @@ import "./globals.css";
 import { open_sans, eb_garamond } from "@/src/utils/fonts";
 import RenderNav from "@/src/components/RenderNav";
 import Navbar from "./Navbar";
-import Footer from "@/src/components/Footer";
 
 export const metadata = {
-	title: "Orr Law, PLLC",
-	description: "Website for Orr Law, PLLC",
+	title: "Orr Law, P.L.L.C.",
+	description: "Website for Orr Law, P.L.L.C.",
 	themeColor: "#c49b65",
 	icons: {
 		icon: "/favicon.svg",
@@ -25,7 +24,6 @@ export default async function RootLayout({ children }) {
 					<Navbar />
 				</RenderNav>
 				<StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-				<Footer />
 			</body>
 		</html>
 	);

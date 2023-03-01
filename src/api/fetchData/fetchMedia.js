@@ -1,12 +1,23 @@
 import { fetchData } from "@/src/api/server";
 import { MediaQuery } from "@/src/api/queries";
+
 export const getMediaData = async (ids) => {
-	const promises = [];
-	for (let id of ids) {
-		promises.push(fetchData(MediaQuery, { uploadFileId: id }));
-	}
-	const data = await Promise.all(promises).then((res) => {
-		return res.map((item) => item.data.uploadFile.data);
-	});
+	const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+	const promises = ids.map((id) =>
+		fetchData(MediaQuery, { uploadFileId: id })
+			.then((res) => {
+				const altText = res.data.uploadFile.data.attributes.alternativeText;
+				const fullUrl = strapiUrl + res.data.uploadFile.data.attributes.url;
+				return { altText, fullUrl };
+			})
+			.catch((err) => {
+				console.error(`Error fetching media data for ID ${id}:`, err);
+				return null;
+			})
+	);
+	const results = await Promise.allSettled(promises);
+	const data = results
+		.filter((result) => result.status === "fulfilled")
+		.map((result) => result.value);
 	return data;
 };

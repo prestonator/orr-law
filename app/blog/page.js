@@ -1,11 +1,11 @@
-import { getPostData } from "@/src/api/fetchData/fetchPost";
+import { fetchPostData } from "@/src/api/fetchData/blogAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import BlogCard from "@/src/components/BlogCard";
 import styles from "@/src/styles/pages/Blog.module.css";
 import urlBuilder from "@/src/utils/urlBuilder";
 
 export default async function Page() {
-	const { allPostData } = await getPostData();
+	const allPostData = await fetchPostData();
 	const [blogHeroQuery] = await getMediaData([9]);
 	const blogHeroUrl = urlBuilder(blogHeroQuery.attributes.url);
 	return (

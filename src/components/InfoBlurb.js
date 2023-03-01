@@ -1,6 +1,4 @@
 "use client";
-import Image from "next/image";
-import urlBuilder from "../utils/urlBuilder";
 import styled from "styled-components";
 
 const InfoBlurbContainer = styled.div`
@@ -8,7 +6,7 @@ const InfoBlurbContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
     justify-content: center;
-    padding: var(--sizing-xs) var(--sizing-small);
+    padding: var(--sizing-large) var(--sizing-small);
 	text-align: center;
     flex-basis: var(--sizing-super);
     background: ${(props) => props.background || "transparent"};

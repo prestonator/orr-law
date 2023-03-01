@@ -147,11 +147,9 @@
 .mobileNavContainer {
 	.logoWrapper {
 		position: relative;
-		width: rfs(15rem);
-		height: rfs(15rem);
+		width: rfs(25rem);
+		height: rfs(5rem);
 		img {
-			filter: invert(63%) sepia(70%) saturate(257%) hue-rotate(354deg)
-				brightness(89%) contrast(86%);
 			object-fit: cover;
 		}
 	}

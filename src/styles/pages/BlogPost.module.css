@@ -20,26 +20,11 @@
 		.imageWrapper {
 			position: relative;
 			width: 100%;
-			height: var(--sizing-super-large);
+			height: var(--sizing-super);
+			border-radius: 10px;
+			overflow: hidden;
 			img {
 				object-fit: cover;
-				border-image: linear-gradient(
-						45deg,
-						var(--color-gold),
-						var(--color-blue-overlay),
-						var(--color-gold),
-						var(--color-blue-overlay),
-						var(--color-gold),
-						var(--color-blue-overlay),
-						var(--color-gold),
-						var(--color-blue-overlay),
-						var(--color-gold)
-					)
-					1;
-				border-image-slice: 0 27 0 0;
-				border-image-repeat: stretch stretch;
-				border-right-width: 1.5rem;
-				border-style: solid;
 			}
 		}
 	}

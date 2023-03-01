@@ -3,6 +3,7 @@ import { BsHouseDoor, BsPeople } from "react-icons/bs";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { Text, Group, Accordion, createStyles } from "@mantine/core";
 
+
 const mainServices = [
 	{
 		id: "estate-planning",
@@ -67,20 +68,21 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-const AccordionLabel = ({ title, icon, description }) => {
+const AccordionLabel = (props) => {
 	return (
 		<Group noWrap>
-			{icon}
+			{props.icon}
 			<div>
-				<Text>{title}</Text>
-				<Text>{description}</Text>
+				<Text>{props.title}</Text>
+				<Text>{props.description}</Text>
 			</div>
 		</Group>
 	);
 };
 
-const AccordionDemo = () => {
+const AccordionDemo = async () => {
 	const { classes } = useStyles();
+
 	const services = mainServices.map((service) => (
 		<Accordion.Item value={service.id} key={service.id}>
 			<Accordion.Control>

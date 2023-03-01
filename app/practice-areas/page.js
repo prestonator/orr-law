@@ -1,9 +1,9 @@
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
+
 import urlBuilder from "@/src/utils/urlBuilder";
 import ButtonPrimary from "@/src/components/ButtonPrimary";
 import styles from "@/src/styles/pages/PracticeAreas.module.css";
 import Demo from "./Accordion";
-import InfoBlurb from "@/src/components/InfoBlurb";
 
 export default async function PracticeAreas() {
 	const [heroImageData] = await getMediaData([8]);

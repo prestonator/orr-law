@@ -1,36 +1,33 @@
 import styles from "@/src/styles/components/Footer.module.css";
-import {
-	AiFillLinkedin,
-	AiFillTwitterSquare,
-	AiFillFacebook,
-} from "react-icons/ai";
-import { getNavData } from "@/src/api/fetchData/fetchNav";
+import { FaLinkedinIn, FaTwitter, FaFacebookF } from "react-icons/fa";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
-const Footer = async () => {
-	const navItemData = await getNavData();
-	const navItems = navItemData.data.renderNavigation;
+const Footer = async ({ footerQuote, links, copyright }) => {
 	return (
 		<footer className={styles.footerWrapper}>
 			<div className={`${styles.footerContainer}`}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
-						<AiFillLinkedin />
-						<AiFillTwitterSquare />
-						<AiFillFacebook />
+					<ReactMarkdown>{footerQuote}</ReactMarkdown>
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
+					<FaLinkedinIn />
+					<FaTwitter />
+					<FaFacebookF />
+				</div>
+				<div className={`${styles.row} ${styles.rowThree}`}>
 					<ul className={styles.footerLinkContainer}>
-						{navItems.map((item) => (
+						{links.map((item) => (
 							<li key={item.path} className={styles.footerLinkWrapper}>
 								<Link href={item.path} className={styles.footerLink}>
-									{item.title}
+									{item.name}
 								</Link>
 							</li>
 						))}
 					</ul>
 				</div>
-				<div className={`${styles.row} ${styles.rowThree}`}>
-					<p>© 2023 | Orr Law, P.L.L.C. | All rights reserved.</p>
+				<div className={`${styles.row} ${styles.rowFour}`}>
+					<ReactMarkdown>{`${copyright}`}</ReactMarkdown>
 				</div>
 			</div>
 		</footer>

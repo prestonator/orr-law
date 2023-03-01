@@ -7,23 +7,22 @@ import urlBuilder from "@/src/utils/urlBuilder";
 
 async function getNavigationData() {
 	const navItemData = await getNavData();
-	const [navLogoData] = await getMediaData([3]);
+	const [navLogoData] = await getMediaData([20]);
 	const navItems = navItemData.data.renderNavigation;
-	const navLogo = navLogoData.attributes;
 	return {
 		navItems,
-		navLogo,
+		navLogoData,
 	};
 }
 
 export default async function Navbar({ children }) {
-	const { navItems, navLogo } = await getNavigationData();
+	const { navItems, navLogoData } = await getNavigationData();
 	return (
 		<>
 			<div className={styles.logoWrapper}>
 				<Image
-					src={urlBuilder(navLogo.url)}
-					alt={navLogo.alternativeText}
+					src={navLogoData.fullUrl}
+					alt={navLogoData.altText}
 					fill
 					priority
 					sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"

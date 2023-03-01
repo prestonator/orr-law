@@ -1,5 +1,5 @@
 .footerWrapper {
-    background-color: var(--color-blue);
+    background: linear-gradient(180deg, rgba(26,28,49,1) 0%, rgba(0,0,0,0.6) 50%);
     padding: var(--sizing-xl) 0;
     margin-top: var(--sizing-large);
 }
@@ -26,11 +26,23 @@
 }
 
 .rowOne {
+    width: 75%;
+    blockquote {
+        font-size: var(--font-size-heading);
+        font-style: italic;
+        text-align: center;
+        padding: var(--sizing-large);
+        border-left: 4px solid var(--color-gold);
+    }
+}
+
+
+.rowTwo {
     display: flex;
     gap: var(--sizing-large);
     svg {
-        width: var(--sizing-large);
-        height: var(--sizing-large);
-        color: var(--color-gold);
+        width: var(--sizing-medium);
+        height: var(--sizing-medium);
+        color: var(--color-white);
     }
 }

@@ -16,6 +16,7 @@ const Button = styled.button`
 	padding: var(--sizing-xxs) var(--sizing-medium);
 	position: relative;
 	width: fit-content;
+	border-radius: var(--default-border-radius);
 	svg {
 		position: absolute;
 		opacity: 0;

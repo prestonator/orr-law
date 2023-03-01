@@ -1,10 +1,11 @@
 export const NavItemQuery = `
-query RenderNavigation($navigationIdOrSlug: String!) {
-    renderNavigation(navigationIdOrSlug: $navigationIdOrSlug) {
-      title
-      path
-    }
-}`;
+query NavItems($navigationIdOrSlug: String!) {
+  renderNavigation(navigationIdOrSlug: $navigationIdOrSlug) {
+    title
+    path
+  }
+}
+`;
 
 export const MediaQuery = `
 query UploadFile($uploadFileId: ID) {
@@ -17,122 +18,6 @@ query UploadFile($uploadFileId: ID) {
       }
     }
   }`;
-
-export const AllPostsQuery = `
-query Posts {
-  posts {
-    data {
-      attributes {
-        slug
-        title
-        datePublished
-        content
-        excerpt
-        image {
-          data {
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        categories {
-          data {
-            attributes {
-              category
-              slug
-            }
-          }
-        }
-        author {
-          data {
-            attributes {
-              name
-              slug
-              headshot {
-                data {
-                  attributes {
-                    url
-                    alternativeText
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
-
-export const PreviewPostQuery = `
-query Posts {
-  posts {
-    data {
-      attributes {
-        title
-        slug
-        datePublished
-        image {
-          data {
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
-
-export const PostBySlugQuery = `
-query Posts($filters: PostFiltersInput) {
-  posts(filters: $filters) {
-    data {
-      attributes {
-        slug
-        title
-        datePublished
-        content
-        excerpt
-        image {
-          data {
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        categories {
-          data {
-            attributes {
-              category
-              slug
-            }
-          }
-        }
-        author {
-          data {
-            attributes {
-              name
-              slug
-              headshot {
-                data {
-                  attributes {
-                    url
-                    alternativeText
-                  }
-                }
-              }
-            }
-          }
-        }
-       }
-      }
-    }
-  }
-`;
 
 export const AuthorQuery = `
 query Author($authorId: ID) {
@@ -158,3 +43,148 @@ query Author($authorId: ID) {
     }
   }
 }`;
+
+// Queries for Blog Posts
+export const BlogPostQuery = `
+query Posts {
+  posts {
+    data {
+      id
+      attributes {
+        title
+        content
+        slug
+        datePublished
+        excerpt
+        author {
+          data {
+            attributes {
+              name
+              bio
+              phone
+              email
+              title
+              location
+              headshot {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+        image {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        categories {
+          data {
+            attributes {
+              category
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const BlogPostBySlugQuery = `
+query Posts($filters: PostFiltersInput) {
+  posts(filters: $filters) {
+    data {
+      id
+      attributes {
+        title
+        content
+        slug
+        datePublished
+        excerpt
+        author {
+          data {
+            attributes {
+              name
+              bio
+              phone
+              email
+              title
+              location
+              headshot {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+        image {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        categories {
+          data {
+            attributes {
+              category
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+`;
+
+// Queries for Pages
+
+export const PageTemplateQuery = `
+query PageTemplates($filters: PageFiltersInput) {
+  pages(filters: $filters) {
+    data {
+      attributes {
+        heading
+        subHeading
+        heroImage {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        blocks {
+          ... on ComponentGlobalFooter {
+            footer {
+              footerQuote
+            }
+            copyrightNotice
+            links
+          }
+          ... on ComponentBlocksServiceCard {
+            services {
+              title
+              content
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

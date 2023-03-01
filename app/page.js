@@ -1,82 +1,73 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import urlBuilder from "@/src/utils/urlBuilder";
+import dynamic from "next/dynamic";
+import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
-import ButtonPrimary from "@/src/components/ButtonPrimary";
-import InfoBlurb from "@/src/components/InfoBlurb";
+import { fetchPostData } from "@/src/api/fetchData/blogAPI";
+import styles from "./page.module.css";
 import { GiScales, GiFamilyHouse } from "react-icons/gi";
 import { HiOutlinePresentationChartLine } from "react-icons/hi";
-import PostBlurb from "@/src/components/PostPreviewBlurb";
-import { getPostData } from "@/src/api/fetchData/fetchPost";
-import { PageWrapper } from "@/src/utils/pageWrapper";
+import Footer from "@/src/components/Footer";
+const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
+const InfoBlurb = dynamic(() => import("@/src/components/InfoBlurb"));
+const PostBlurb = dynamic(() => import("@/src/components/PostPreviewBlurb"));
+
+
+async function getMedia() {
+	const [brandonHeadshot] = await getMediaData([5]);
+	return {
+		brandonHeadshot,
+	};
+}
+
+async function getPreviewPostData() {
+	const previewPostData = await fetchPostData();
+	return previewPostData;
+}
+
+async function getTemplateData() {
+	const templateData = await getPageTemplateData("home");
+	return templateData;
+}
 
 export default async function Home() {
-	const [heroImageQuery, brandonHeadshotQuery, consultationBannerQuery] =
-		await getMediaData([16, 5, 7]);
-	const heroImageUrl = urlBuilder(heroImageQuery.attributes.url);
-	const brandonHeadshotUrl = urlBuilder(brandonHeadshotQuery.attributes.url);
-	const consultationBannerUrl = urlBuilder(
-		consultationBannerQuery.attributes.url
-	);
-	const { previewPostData } = await getPostData();
+	const { brandonHeadshot } = await getMedia();
+	const previewPostData = await getPreviewPostData();
+	const templateData = await getTemplateData();
+	console.log(templateData);
 	return (
 		<>
 			<section
 				className={styles.sectionOne}
 				style={{
-					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${heroImageUrl})`,
+					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${templateData.heroImageUrl})`,
 					backgroundSize: "cover",
 				}}
 			>
 				<div className={styles.col}>
 					<div className={styles.row}>
-						<h1>
-							Welcome to Orr <br />& Associates
-						</h1>
+						<h1>{templateData.pageHeading}</h1>
 					</div>
 					<div className={styles.row}>
-						<p>
-							This is where we will put a SEO paragraph, explaining areas of
-							practice, etc.
-						</p>
-					</div>
-					<div className={`${styles.row} ${styles.buttonContainer}`}>
-						<ButtonPrimary
-							href="/practice-areas"
-							color="var(--color-white)"
-							fontsize="var(--font-size-small)"
-							background="var(--color-gold)"
-							borderwidth="0"
-						>
-							Practice Areas
-						</ButtonPrimary>
-						<ButtonPrimary
-							href="/about"
-							color="var(--color-white)"
-							fontsize="var(--font-size-small)"
-							background="var(--color-blue)"
-							borderwidth="0"
-						>
-							About Us
-						</ButtonPrimary>
+						<p>{templateData.pageSubHeading}</p>
 					</div>
 				</div>
 			</section>
 			<section className={styles.sectionTwo}>
 				<div className={styles.col}>
 					<div className={`${styles.row} ${styles.rowOne}`}>
+						
 						<InfoBlurb
 							title="Contract Review"
 							text="Family issues, domestic relations, divorce, child custody and support, alimony, adoption."
 							icon={<GiScales />}
 							background="var(--color-blue)"
-							iconColor="var(--color-gold)"
+							iconColor="var(--color-white)"
 						/>
 						<InfoBlurb
 							title="Estate Law"
 							text="Drafting and reviewing wills/trusts, probate and estate administration, and estate dispute litigation."
 							icon={<GiFamilyHouse />}
-							background="var(--color-gold)"
+							background="var(--color-blue)"
 							iconColor="var(--color-white)"
 						/>
 						<InfoBlurb
@@ -84,7 +75,7 @@ export default async function Home() {
 							text="Learn more about the cases Orr & Associates handles, and see how we can help you"
 							icon={<HiOutlinePresentationChartLine />}
 							background="var(--color-blue)"
-							iconColor="var(--color-gold)"
+							iconColor="var(--color-white)"
 						/>
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}>
@@ -93,7 +84,7 @@ export default async function Home() {
 							color="var(--color-white)"
 							fontsize="var(--font-size-small)"
 							background="var(--color-blue)"
-							borderwidth="0"
+							borderWidth="0"
 						>
 							Learn More
 						</ButtonPrimary>
@@ -104,8 +95,8 @@ export default async function Home() {
 				<div className={`${styles.col} ${styles.colOne}`}>
 					<div className={styles.imageWrapper}>
 						<Image
-							src={brandonHeadshotUrl}
-							alt={brandonHeadshotQuery.attributes.alternativeText}
+							src={brandonHeadshot.fullUrl}
+							alt={brandonHeadshot.altText}
 							fill
 							priority
 							sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
@@ -140,7 +131,7 @@ export default async function Home() {
 					<span>Blog</span>
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
-					{previewPostData.map((post) => {
+					{previewPostData.slice(0, 3).map((post) => {
 						return (
 							<PostBlurb
 								key={post.attributes.slug}
@@ -153,6 +144,12 @@ export default async function Home() {
 					})}
 				</div>
 			</section>
+			<Footer
+				icons={templateData.icons}
+				copyright={templateData.copyrightNotice}
+				links={templateData.links}
+				footerQuote={templateData.footerQuote}
+			/>
 		</>
 	);
 }
