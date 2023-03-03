@@ -2,7 +2,6 @@ import { fetchPostData } from "@/src/api/fetchData/blogAPI";
 import { fetchPostDataBySlug } from "@/src/api/fetchData/blogAPI";
 import Image from "next/image";
 import styles from "@/src/styles/pages/BlogPost.module.css";
-import ReactMarkdown from "react-markdown";
 import { getToc } from "@/src/components/Article/utils/getTOC";
 import PostBody from "@/src/components/Article/components/articleBody";
 
