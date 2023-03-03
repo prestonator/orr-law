@@ -41,6 +41,8 @@
 		}
 		hr {
 			width: var(--sizing-super);
+			margin-top: var(--sizing-xxs);
+			margin-bottom: var(--sizing-large);
 		}
 	}
 }

@@ -3,6 +3,9 @@ import "./globals.css";
 import RenderNav from "@/src/components/RenderNav";
 import Navbar from "./Navbar";
 
+
+
+
 export const metadata = {
 	title: "Orr Law.",
 	description: "Website for Orr Law.",

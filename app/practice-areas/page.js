@@ -2,7 +2,7 @@ import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
 import Footer from "@/src/components/Footer";
 import ButtonPrimary from "@/src/components/ButtonPrimary";
 import styles from "@/src/styles/pages/PracticeAreas.module.css";
-import Demo from "./Accordion";
+import AccordionContainer from "./Accordion";
 
 async function getTemplateData() {
 	const templateData = await getPageTemplateData("practice");
@@ -47,6 +47,7 @@ export default async function PracticeAreas() {
 					<div className={`${styles.row} ${styles.rowOne}`}>
 						<h2>Main Services</h2>
 						<hr />
+						<AccordionContainer />
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}></div>
 				</div>

@@ -40,6 +40,7 @@ export default async function Home() {
 				style={{
 					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${templateData.heroImageUrl})`,
 					backgroundSize: "cover",
+					backgroundPositionY: "calc(-1 * var(--sizing-xxxl))"
 				}}
 			>
 				<div className={styles.col}>
