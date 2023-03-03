@@ -24,6 +24,7 @@
 	--font-family-content: "Open Sans", sans-serif;
 	--default-hover-transition: all 0.3s ease-in-out;
 	--default-border-radius: 0.5rem;
+	--custom: rfs(125rem);
 	--sizing-super-xxl: rfs(150rem);
 	--sizing-super-xl: rfs(100rem);
 	--sizing-super-large: rfs(65rem);
