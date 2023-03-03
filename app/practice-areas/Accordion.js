@@ -48,6 +48,11 @@ const useStyles = createStyles((theme) => ({
 		},
 	},
 
+	content: {
+		paddingLeft: "var(--sizing-medium)",
+		paddingRight: "var(--sizing-medium)",
+	},
+
 	control: {
 		fontSize: "var(--font-size-medium)",
 	},
