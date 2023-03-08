@@ -4,8 +4,6 @@ import { getPageTemplateData } from "@/src/api/fetchData/pageTemplateAPI";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import { fetchPostData } from "@/src/api/fetchData/blogAPI";
 import styles from "./page.module.css";
-import { GiScales, GiFamilyHouse } from "react-icons/gi";
-import { HiOutlinePresentationChartLine } from "react-icons/hi";
 import Footer from "@/src/components/Footer";
 const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
 const InfoBlurb = dynamic(() => import("@/src/components/InfoBlurb"));
@@ -63,7 +61,7 @@ export default async function Home() {
 									text={service.content}
 									icon={service.icon.data.attributes.url}
 									iconAlt={service.icon.data.attributes.alternativeText}
-									background="var(--color-blue)"
+									background="var(--color-gold)"
 									iconColor="var(--color-white)"
 								/>
 							);

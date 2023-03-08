@@ -5,11 +5,11 @@
 }
 
 :root {
-	--color-gold: rgba(196, 155, 101, 1);
+	--color-gold: rgba(125, 107, 41, 1);
 	--color-white: #ffffff;
 	--color-black: #000;
 	--color-blue: rgba(26, 28, 49, 1);
-	--color-blue-overlay: rgba(26, 28, 49, 0.8);
+	--color-blue-overlay: rgba(26, 28, 49, 0.7);
 	--default-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 	--font-size-xl: rfs(5rem);
 	--font-size-large: rfs(3.5rem);

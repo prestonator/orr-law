@@ -97,22 +97,6 @@ export default function AccordionContainer() {
 					</blockquote>
 				</Accordion.Panel>
 			</Accordion.Item>
-
-			<Accordion.Item value="family-law">
-				<Accordion.Control icon={<MdFamilyRestroom />}>
-					Family Law
-				</Accordion.Control>
-				<Accordion.Panel>
-					<blockquote>
-						Our family law practice covers a range of legal issues related to
-						families, including divorce, child custody and support, adoption,
-						and domestic violence. We understand that family law issues can be
-						emotional and stressful, and we&apos;re here to guide you through
-						the process and advocate for your best interests.
-					</blockquote>
-				</Accordion.Panel>
-			</Accordion.Item>
-
 			<Accordion.Item value="small-business-law">
 				<Accordion.Control icon={<ImOffice />}>
 					Small Business Law
