@@ -14,13 +14,14 @@ export const getPageTemplateData = async (title) => {
 
 	if (!response?.data?.pages?.data[0]) return null;
 
-	const { heading, subHeading, heroImage, blocks } =
+	const { heading, subHeading, heroImage, blocks, blurbWithIcon } =
 		response.data.pages.data[0].attributes;
 
 	const heroImageUrl = `${strapiUrl}${heroImage.data.attributes.url}`;
 	const heroImageAlt = heroImage.data.attributes.alternativeText;
 	const pageHeading = heading;
 	const pageSubHeading = subHeading;
+	const blurbContent = blurbWithIcon;
 	const footerQuote = blocks[0].footer.footerQuote;
 	const links = blocks[0].links.pages;
 	const copyrightNotice = blocks[0].copyrightNotice;
@@ -36,5 +37,6 @@ export const getPageTemplateData = async (title) => {
 		links,
 		copyrightNotice,
 		services,
+		blurbContent,
 	};
 };

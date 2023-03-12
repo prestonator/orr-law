@@ -30,7 +30,7 @@ export default async function Home() {
 	const { brandonHeadshot } = await getMedia();
 	const previewPostData = await getPreviewPostData();
 	const templateData = await getTemplateData();
-	//console.log(templateData);
+	console.log(templateData.blurbContent[0].services);
 	return (
 		<>
 			<section
@@ -38,7 +38,7 @@ export default async function Home() {
 				style={{
 					backgroundImage: `linear-gradient(var(--color-blue-overlay), var(--color-blue-overlay)), url(${templateData.heroImageUrl})`,
 					backgroundSize: "cover",
-					backgroundPositionY: "calc(-1 * var(--sizing-xxxl))"
+					backgroundPositionY: "calc(-1 * var(--sizing-xxxl))",
 				}}
 			>
 				<div className={styles.col}>
@@ -115,6 +115,24 @@ export default async function Home() {
 					</p>
 				</div>
 			</section>
+			<div>
+				{templateData.blurbContent.map((blurb) => {
+					return (
+						<div key={blurb.id}>
+							<h3>{blurb.title}</h3>
+							<p>{blurb.content}</p>
+							{blurb.services.map((service) => {
+								return (
+									<div key={service.id}>
+										<h4>{service.title}</h4>
+										<p>{service.content}</p>
+									</div>
+								);
+							})}
+						</div>
+					);
+				})}
+			</div>
 			<section className={styles.sectionFour}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
 					<h3>News Updates</h3>

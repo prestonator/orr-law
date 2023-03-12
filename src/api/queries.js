@@ -192,6 +192,20 @@ query PageTemplates($filters: PageFiltersInput) {
             }
           }
         }
+        blurbWithIcon {
+          services {
+            title
+            content
+            icon {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

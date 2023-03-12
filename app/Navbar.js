@@ -19,18 +19,22 @@ export default async function Navbar({ children }) {
 	return (
 		<>
 			<div className={styles.logoWrapper}>
-				<Image
-					src={navLogoData.fullUrl}
-					alt={navLogoData.altText}
-					fill
-					priority
-					sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
-				/>
+				<Link href="/">
+					<Image
+						src={navLogoData.fullUrl}
+						alt={navLogoData.altText}
+						fill
+						priority
+						sizes="(max-width: 500px) 100vw, (max-width: 1000px) 50vw, auto"
+					/>
+				</Link>
 			</div>
 			<ul className={styles.navItemContainer}>
 				{navItems.map((item) => (
 					<li key={item.path} className={styles.navItem}>
-						<Link href={item.path} className={styles.menuLink}>{item.title}</Link>
+						<Link href={item.path} className={styles.menuLink}>
+							{item.title}
+						</Link>
 					</li>
 				))}
 			</ul>
