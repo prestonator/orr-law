@@ -115,25 +115,27 @@ export default async function Home() {
 					</p>
 				</div>
 			</section>
-			<div>
-				{templateData.blurbContent.map((blurb) => {
+			<section className={styles.sectionFour}>
+				<div className={`${styles.rowOne}`}>
+					<h3>Why Choose Us</h3>
+				</div>
+				<div className={styles.rowTwo}>
+				{templateData.blurbContent[0].services.map((blurb) => {
 					return (
-						<div key={blurb.id}>
-							<h3>{blurb.title}</h3>
+						<div key={blurb.id} className={styles.whyChooseUs}>
+							<Image
+								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blurb.icon.data.attributes.url}`}
+								alt={blurb.icon.data.attributes.alternativeText}
+								width={50}
+								height={50}
+							/>
+							<h4>{blurb.title}</h4>
 							<p>{blurb.content}</p>
-							{blurb.services.map((service) => {
-								return (
-									<div key={service.id}>
-										<h4>{service.title}</h4>
-										<p>{service.content}</p>
-									</div>
-								);
-							})}
 						</div>
 					);
-				})}
-			</div>
-			<section className={styles.sectionFour}>
+				})}</div>
+			</section>
+			<section className={styles.sectionFive}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
 					<h3>News Updates</h3>
 					<span>Blog</span>
