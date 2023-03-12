@@ -117,7 +117,7 @@ export default async function Home() {
 			</section>
 			<section className={styles.sectionFour}>
 				<div className={`${styles.rowOne}`}>
-					<h3>Why Choose Us</h3>
+					<h3>Why Orr Law?</h3>
 				</div>
 				<div className={styles.rowTwo}>
 				{templateData.blurbContent[0].services.map((blurb) => {
