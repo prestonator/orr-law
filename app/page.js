@@ -5,9 +5,7 @@ import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import { fetchPostData } from "@/src/api/fetchData/blogAPI";
 import styles from "./page.module.css";
 import Footer from "@/src/components/Footer";
-import { FiExternalLink } from "react-icons/fi";
 const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
-const InfoBlurb = dynamic(() => import("@/src/components/info"));
 const PostBlurb = dynamic(() => import("@/src/components/PostPreviewBlurb"));
 
 async function getMedia() {
@@ -77,7 +75,7 @@ export default async function Home() {
 							href="/about"
 							color="var(--color-white)"
 							fontsize="var(--font-size-small)"
-							background="var(--color-blue)"
+							background="var(--color-gold)"
 							borderWidth="0"
 						>
 							Learn More
