@@ -23,7 +23,6 @@ export default function RenderNav({ children }) {
 				<span className={`${styles.line} ${styles.lineTwo}`}></span>
 				<span className={`${styles.line} ${styles.lineThree}`}></span>
 			</div>
-			<h1 className={styles.navTitle}>Orr Law, LLC</h1>
 			{children}
 		</nav>
 	);

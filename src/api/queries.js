@@ -31,6 +31,7 @@ query Author($authorId: ID) {
         location
         slug
         bio
+        bioExtended
         headshot {
           data {
             attributes {

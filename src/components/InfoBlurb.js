@@ -13,7 +13,7 @@ const InfoBlurbContainer = styled.div`
 	background: ${(props) => props.background || "transparent"};
 	border-radius: var(--default-border-radius);
 	.iconWrapper {
-		svg {
+		img {
 			width: var(--sizing-xl);
 			height: var(--sizing-xl);
 			color: ${(props) => props.iconColor || "var(--color-white)"};

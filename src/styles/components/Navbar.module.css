@@ -9,19 +9,16 @@
 		position: absolute;
 		width: 100%;
 		z-index: 1;
-		.navTitle {
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			top: rfs(5rem);
-			font-size: var(--font-size-title);
-			z-index: 2;
-			color: var(--color-white);
-		}
 		.logoWrapper {
 			align-self: flex-start;
-			margin: var(--sizing-xxs) 0 0 var(--sizing-xs);
+			margin-left: var(--sizing-large);
+			margin-top: var(--sizing-medium);
 			z-index: 2;
+			width: var(--sizing-super);
+			height: var(--sizing-xxl);
+			img {
+				object-fit: contain;
+			}
 		}
 		.checkbox {
 			position: absolute;
@@ -66,18 +63,15 @@
 		}
 		.navItemContainer {
 			padding-top: 120px;
-			box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
 			height: -webkit-fill-available;
 			width: -webkit-fill-available;
 			transform: translate(-150%);
 			display: flex;
 			flex-direction: column;
-			margin-left: -40px;
-			padding-left: 50px;
 			transition: transform 0.5s ease-in-out;
 			text-align: center;
 			list-style-type: none;
-			background-color: var(--color-white);
+			background-color: var(--color-blue);
 			position: fixed;
 			z-index: 1;
 			li {
@@ -86,7 +80,7 @@
 				font-weight: 500;
 				a {
 					text-decoration: none;
-					color: black;
+					color: var(--color-white);
 				}
 			}
 		}
@@ -95,7 +89,7 @@
 		}
 
 		input[type="checkbox"]:checked ~ .hamburgerLines .line {
-			background: var(--color-black);
+			background: var(--color-white);
 		}
 
 		input[type="checkbox"]:checked ~ .hamburgerLines .lineOne {
@@ -125,6 +119,13 @@
 		gap: rfs(10rem);
 		position: absolute;
 		align-items: center;
+		.logoWrapper {
+			width: rfs(25rem);
+			height: rfs(5rem);
+			img {
+				object-fit: cover;
+			}
+		}
 		.navItemContainer {
 			display: flex;
 			flex-direction: row;
@@ -147,17 +148,11 @@
 .mobileNavContainer {
 	.logoWrapper {
 		position: relative;
-		width: rfs(25rem);
-		height: rfs(5rem);
-		img {
-			object-fit: cover;
-		}
 	}
 	a {
 		text-decoration: none;
 	}
 }
-
 
 .active {
 	color: var(--color-gold);

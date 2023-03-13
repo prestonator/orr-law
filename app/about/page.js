@@ -14,7 +14,6 @@ export default async function About() {
 	const authorData = await getAuthorData("1");
 	const author = authorData.attributes;
 	const templateData = await getTemplateData();
-
 	return (
 		<>
 			<div className="sectionBorder"></div>
@@ -36,7 +35,7 @@ export default async function About() {
 					</div>
 					<ReactMarkdown
 						className={styles.textWrapper}
-					>{`${author.bio}`}</ReactMarkdown>
+					>{`${author.bioExtended}`}</ReactMarkdown>
 				</div>
 			</section>
 			<Footer

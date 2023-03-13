@@ -22,7 +22,7 @@
 }
 
 .sectionTwo {
-	padding-top: var(--sizing-medium);
+	margin: var(--sizing-large) 0;
 	.col {
 		display: flex;
 		flex-direction: column;
