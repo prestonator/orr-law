@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 import Footer from "@/src/components/Footer";
 import { FiExternalLink } from "react-icons/fi";
 const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
-const InfoBlurb = dynamic(() => import("@/src/components/InfoBlurb"));
+const InfoBlurb = dynamic(() => import("@/src/components/info"));
 const PostBlurb = dynamic(() => import("@/src/components/PostPreviewBlurb"));
 
 async function getMedia() {
@@ -55,15 +55,20 @@ export default async function Home() {
 					<div className={`${styles.row} ${styles.rowOne}`}>
 						{templateData.services.map((service) => {
 							return (
-								<InfoBlurb
-									key={service.id}
-									title={service.title}
-									text={service.content}
-									icon={service.icon.data.attributes.url}
-									iconAlt={service.icon.data.attributes.alternativeText}
-									background="var(--color-gold)"
-									iconColor="var(--color-white)"
-								/>
+								<div className={styles.container} key={service.id}>
+									<div className={styles.imageWrapper}>
+										<Image
+											className={styles.image}
+											src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${service.icon.data.attributes.url}`}
+											alt={service.icon.data.attributes.alternativeText}
+											fill
+										/>
+									</div>
+									<div className={styles.textContainer}>
+										<h2 className={styles.heading}>{service.title}</h2>
+										<p className={styles.content}>{service.content}</p>
+									</div>
+								</div>
 							);
 						})}
 					</div>

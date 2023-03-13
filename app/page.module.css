@@ -27,14 +27,53 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--sizing-small);
+		padding: 0 var(--sizing-large);
 	}
 	.row {
 		display: flex;
 		justify-content: center;
 		flex-direction: row;
 	}
-	.rowOne {
-		gap: var(--sizing-small);
+}
+
+.sectionTwo .rowOne {
+	gap: var(--sizing-xl);
+	.container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+		width: 100%;
+		max-width: var(--sizing-super);
+		background: green;
+		justify-content: center;
+		padding: var(--sizing-large);
+		border-radius: var(--default-border-radius);
+	}
+
+	.imageWrapper {
+		position: relative;
+		width: var(--sizing-xxl);
+		aspect-ratio: 1;
+	}
+
+	.image {
+		object-fit: contain;
+	}
+
+	.textContainer {
+		color: var(--color-white);
+	}
+
+	.heading {
+		margin-top: var(--sizing-xxxs);
+		margin-bottom: var(--sizing-small);
+		font: 500 var(--font-size-title) var(--font-family-fancy);
+	}
+
+	.content {
+		font: 500 var(--font-size-body) var(--font-family-content);
+		line-height: 1.5em;
 	}
 }
 
@@ -138,16 +177,6 @@
 }
 
 @media screen and (max-width: 860px) {
-	.sectionTwo .rowOne {
-		width: var(--sizing-super-xxl);
-		margin: 0 auto;
-		p {
-			display: none;
-		}
-		> div {
-			width: var(--sizing-super);
-		}
-	}
 	.sectionFour .rowTwo {
 		flex-direction: column;
 		p {
@@ -155,7 +184,6 @@
 		}
 	}
 }
-
 
 @media screen and (min-width: 600px) {
 	.sectionThree {
@@ -171,6 +199,12 @@
 }
 
 @media screen and (max-width: 980px) {
+	.sectionTwo .rowOne .heading {
+		margin-bottom: 0;
+	}
+	.sectionTwo .rowOne .textContainer .content {
+		display: none;
+	}
 	.sectionThree {
 		grid-row-gap: var(--sizing-medium);
 		.colTwo {
@@ -186,7 +220,23 @@
 	}
 }
 
+@media screen and (max-width: 500px) {
+	.sectionTwo .rowOne {
+		flex-direction: column;
+		align-items: center;
+		.container {
+			max-width: 100%;
+		}
+	}
+}
+
 @media screen and (max-width: 650px) {
+	.sectionTwo .rowOne {
+		gap: var(--sizing-medium);
+		.container {
+			padding: var(--sizing-medium);
+		}
+	}
 	.sectionThree {
 		display: flex;
 		gap: var(--sizing-medium);

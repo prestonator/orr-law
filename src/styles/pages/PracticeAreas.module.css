@@ -114,3 +114,16 @@
 		}
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.sectionFour .rowTwo {
+		flex-direction: column;
+		align-items: center;
+		gap: var(--sizing-large);
+		.col {
+			width: var(--sizing-super);
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
