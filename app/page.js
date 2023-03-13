@@ -30,7 +30,6 @@ export default async function Home() {
 	const { brandonHeadshot } = await getMedia();
 	const previewPostData = await getPreviewPostData();
 	const templateData = await getTemplateData();
-	console.log(templateData.blurbContent[0].services);
 	return (
 		<>
 			<section

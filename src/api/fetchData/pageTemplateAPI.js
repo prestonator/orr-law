@@ -14,7 +14,7 @@ export const getPageTemplateData = async (title) => {
 
 	if (!response?.data?.pages?.data[0]) return null;
 
-	const { heading, subHeading, heroImage, blocks, blurbWithIcon } =
+	const { heading, subHeading, heroImage, blocks, blurbWithIcon, accordion } =
 		response.data.pages.data[0].attributes;
 
 	const heroImageUrl = `${strapiUrl}${heroImage.data.attributes.url}`;
@@ -38,5 +38,6 @@ export const getPageTemplateData = async (title) => {
 		copyrightNotice,
 		services,
 		blurbContent,
+		accordion,
 	};
 };

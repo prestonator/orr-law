@@ -206,6 +206,21 @@ query PageTemplates($filters: PageFiltersInput) {
             }
           }
         }
+        accordion {
+          item {
+            id
+            title
+            content
+            icon {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

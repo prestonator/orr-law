@@ -1,8 +1,9 @@
 "use client";
 import { GiFarmTractor, GiFamilyHouse } from "react-icons/gi";
-import { MdFamilyRestroom } from "react-icons/md";
 import { ImOffice } from "react-icons/im";
 import { Accordion, createStyles, rem } from "@mantine/core";
+import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
 	root: {
@@ -58,7 +59,7 @@ const useStyles = createStyles((theme) => ({
 	},
 
 	icon: {
-		svg: {
+		img: {
 			width: "var(--sizing-large)",
 			height: "var(--sizing-large)",
 			color: "var(--color-blue)",
@@ -72,58 +73,38 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-export default function AccordionContainer() {
+export default function AccordionContainer({ accordionData }) {
 	const { classes } = useStyles();
 	return (
 		<Accordion
-			maw={1080}
+			maw="var(--sizing-super-xxl)"
+			px="var(--sizing-medium)"
 			mx="auto"
 			variant="filled"
 			defaultValue="customization"
 			classNames={classes}
 			className={classes.root}
 		>
-			<Accordion.Item value="agritourism-law">
-				<Accordion.Control icon={<GiFarmTractor />}>
-					Agritourism Law
-				</Accordion.Control>
-				<Accordion.Panel>
-					<blockquote>
-						This practice area covers legal issues related to agritourism,
-						including zoning and land use, liability and risk management,
-						contracts, and regulatory compliance. If you&apos;re a farmer or
-						rancher looking to host visitors on your property, we can help
-						ensure that you&apos;re legally protected.
-					</blockquote>
-				</Accordion.Panel>
-			</Accordion.Item>
-			<Accordion.Item value="small-business-law">
-				<Accordion.Control icon={<ImOffice />}>
-					Small Business Law
-				</Accordion.Control>
-				<Accordion.Panel>
-					<blockquote>
-						Whether you&apos;re starting a new business or managing an existing
-						one, our small business law practice can help you navigate the legal
-						complexities of business ownership. We can assist with entity
-						formation, contracts, employment law, intellectual property, and
-						more.
-					</blockquote>
-				</Accordion.Panel>
-			</Accordion.Item>
-			<Accordion.Item value="estate-law">
-				<Accordion.Control icon={<GiFamilyHouse />}>
-					Estate Law
-				</Accordion.Control>
-				<Accordion.Panel>
-					<blockquote>
-						Our estate law practice covers all aspects of estate planning,
-						including wills, trusts, powers of attorney, and probate. We can
-						help you develop a plan that protects your assets and ensures that
-						your wishes are carried out after you&apos;re gone.
-					</blockquote>
-				</Accordion.Panel>
-			</Accordion.Item>
+			{accordionData.map((item) => (
+				<Accordion.Item key={item.id} value={item.id}>
+					<Accordion.Control
+						icon={
+							<Image
+								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.icon}`}
+								alt={item.title}
+								width={50}
+								height={50}
+								style={{ color: "var(--color-blue)" }}
+							/>
+						}
+					>
+						{item.title}
+					</Accordion.Control>
+					<Accordion.Panel>
+						<ReactMarkdown>{item.content}</ReactMarkdown>
+					</Accordion.Panel>
+				</Accordion.Item>
+			))}
 		</Accordion>
 	);
 }
