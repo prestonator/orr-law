@@ -5,6 +5,7 @@ import styles from "@/src/styles/pages/PracticeAreas.module.css";
 import AccordionContainer from "./Accordion";
 import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 
 async function getTemplateData() {
 	const templateData = await getPageTemplateData("practice");
@@ -42,6 +43,19 @@ export default async function PracticeAreas() {
 			icon: item.icon.data.attributes.url,
 		};
 	});
+	const specificServices = templateData.accordion[1].item.map((item) => {
+		return {
+			id: item.id,
+			title: item.title,
+			content: item.content,
+		};
+	});
+
+	// Divide the data into three separate columns
+	const columns = [[], [], []];
+	specificServices.forEach((item, index) => {
+		columns[index % 3].push(item);
+	});
 	return (
 		<>
 			<section
@@ -74,8 +88,8 @@ export default async function PracticeAreas() {
 			<section className={styles.sectionTwo}>
 				<div className={styles.col}>
 					<div className={`${styles.row} ${styles.rowOne}`}>
-						<h2>Main Services</h2>
-						<hr />
+						<h2 className={styles.sectionHeader}>Main Services</h2>
+						<hr className={styles.sectionDivider} />
 						<AccordionContainer accordionData={accordionData} />
 					</div>
 					<div className={`${styles.row} ${styles.rowTwo}`}></div>
@@ -90,14 +104,40 @@ export default async function PracticeAreas() {
 						<Image src={images.houseImageUrl} alt={images.houseImageAlt} fill />
 					</div>
 					<div className={`${styles.imageWrapper}`}>
-						<Image src={images.familyImageUrl} alt={images.familyImageAlt} fill />
+						<Image
+							src={images.familyImageUrl}
+							alt={images.familyImageAlt}
+							fill
+						/>
 					</div>
 					<div className={`${styles.imageWrapper}`}>
-						<Image src={images.contractImageUrl} alt={images.contractImageAlt} fill />
+						<Image
+							src={images.contractImageUrl}
+							alt={images.contractImageAlt}
+							fill
+						/>
 					</div>
 				</div>
 				<div className={`${styles.row} ${styles.rowThree}`}>
 					<span>Securing your future</span>
+				</div>
+			</section>
+			<section className={styles.sectionFour}>
+				<div className={`${styles.row} ${styles.rowOne}`}>
+					<h2 className={styles.sectionHeader}>Specific Services</h2>
+					<hr className={styles.sectionDivider} />
+				</div>
+				<div className={`${styles.row} ${styles.rowTwo}`}>
+					{columns.map((column, index) => (
+						<div key={index} className={styles.col}>
+							{column.map((item) => (
+								<div key={item.id} className={styles.serviceColumn}>
+									<h2>{item.title}</h2>
+									<ReactMarkdown>{item.content}</ReactMarkdown>
+								</div>
+							))}
+						</div>
+					))}
 				</div>
 			</section>
 			<Footer

@@ -1,3 +1,13 @@
+.sectionHeader {
+	font: 500 var(--font-size-xl) var(--font-family-fancy);
+}
+
+.sectionDivider {
+	width: var(--sizing-super);
+	margin-top: var(--sizing-xxs);
+	margin-bottom: var(--sizing-large);
+}
+
 .sectionOne {
 	.col {
 		display: flex;
@@ -36,14 +46,6 @@
 	.rowOne {
 		flex-direction: column;
 		align-items: center;
-		h2 {
-			font: 500 var(--font-size-xl) var(--font-family-fancy);
-		}
-		hr {
-			width: var(--sizing-super);
-			margin-top: var(--sizing-xxs);
-			margin-bottom: var(--sizing-large);
-		}
 	}
 }
 
@@ -84,4 +86,31 @@
 
 .sectionThree .rowThree {
 	align-self: flex-end;
+}
+
+.sectionFour {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: var(--sizing-large) 0;
+	.rowOne {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+.sectionFour .rowTwo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: var(--sizing-super-xxl);
+	.col {
+		width: var(--sizing-xxxl)
+	}
+	.serviceColumn {
+		h2 {
+			margin-bottom: var(--sizing-xs);
+		}
+	}
 }
