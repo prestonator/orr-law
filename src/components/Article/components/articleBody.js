@@ -13,7 +13,6 @@ const PostContent = styled.section`
 	padding-top: var(--sizing-large);
 	padding-left: var(--sizing-medium);
 	padding-right: var(--sizing-medium);
-    
 `;
 
 const ContentWrapper = styled.div`
@@ -24,8 +23,9 @@ const ContentWrapper = styled.div`
 	}
 	p {
 		font: 300 var(--font-size-normal) var(--font-family-content);
-		margin: var(--sizing-xxxs) 0;
-		line-height: 1.8em;
+		margin: var(--sizing-xs) 0;
+		line-height: 2.2em;
+		text-align: justify;
 	}
 `;
 

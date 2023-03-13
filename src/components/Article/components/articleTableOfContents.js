@@ -5,7 +5,6 @@ const ToCWrapper = styled.div`
 	position: sticky;
 	top: var(--sizing-small);
 	margin-bottom: var(--sizing-small);
-	background-color: var(--color-blue-overlay);
 	padding: var(--sizing-medium);
 	border-radius: var(--default-border-radius);
 	font-size: var(--font-size-normal);
@@ -34,7 +33,7 @@ const ToCListItem = styled.li`
 const ToCItemTitle = styled.a`
 	transition: 0.2s;
 	text-decoration: none;
-	color: var(--color-white);
+	color: var(--color-black);
 	:hover {
 		color: var(--color-gold);
 	}

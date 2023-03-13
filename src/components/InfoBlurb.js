@@ -30,17 +30,6 @@ const InfoBlurbContainer = styled.div`
 			font: 500 var(--font-size-body) var(--font-family-content);
 		}
 	}
-
-	@media (max-width: 900px) {
-		justify-content: center;
-		flex-basis: var(--sizing-xxxl);
-		padding: var(--sizing-xs) var(--sizing-medium);
-		.textContainer {
-			p {
-				display: none;
-			}
-		}
-	}
 `;
 
 const InfoBlurb = ({

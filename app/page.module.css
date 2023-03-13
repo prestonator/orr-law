@@ -34,7 +34,6 @@
 		flex-direction: row;
 	}
 	.rowOne {
-		flex-wrap: wrap;
 		gap: var(--sizing-small);
 	}
 }
@@ -137,6 +136,26 @@
 		flex-wrap: wrap;
 	}
 }
+
+@media screen and (max-width: 860px) {
+	.sectionTwo .rowOne {
+		width: var(--sizing-super-xxl);
+		margin: 0 auto;
+		p {
+			display: none;
+		}
+		> div {
+			width: var(--sizing-super);
+		}
+	}
+	.sectionFour .rowTwo {
+		flex-direction: column;
+		p {
+			text-align: center;
+		}
+	}
+}
+
 
 @media screen and (min-width: 600px) {
 	.sectionThree {
