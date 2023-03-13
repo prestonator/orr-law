@@ -45,7 +45,7 @@
 		text-align: center;
 		width: 100%;
 		max-width: var(--sizing-super);
-		background: green;
+		background: var(--color-gold);
 		justify-content: center;
 		padding: var(--sizing-large);
 		border-radius: var(--default-border-radius);
