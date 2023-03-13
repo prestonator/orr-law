@@ -5,6 +5,7 @@ import { getMediaData } from "@/src/api/fetchData/fetchMedia";
 import { fetchPostData } from "@/src/api/fetchData/blogAPI";
 import styles from "./page.module.css";
 import Footer from "@/src/components/Footer";
+import { FiExternalLink } from "react-icons/fi";
 const ButtonPrimary = dynamic(() => import("@/src/components/ButtonPrimary"));
 const InfoBlurb = dynamic(() => import("@/src/components/InfoBlurb"));
 const PostBlurb = dynamic(() => import("@/src/components/PostPreviewBlurb"));
@@ -93,7 +94,7 @@ export default async function Home() {
 				</div>
 				<div className={`${styles.col} ${styles.colTwo}`}>
 					<span>Attorney</span>
-					<h3>Brandon Orr</h3>
+						<h3>Brandon Orr</h3>
 					<p>Serving Oklahoma City and surrounding areas</p>
 					<p>
 						Brandon can help with making the legal process affordable and
@@ -116,28 +117,30 @@ export default async function Home() {
 			</section>
 			<section className={styles.sectionFour}>
 				<div className={`${styles.rowOne}`}>
-					<h3>Why Orr Law?</h3>
+					<h3 className={styles.sectionHeading}>Why Orr Law?</h3>
+					<hr className={styles.headingLine} />
 				</div>
 				<div className={styles.rowTwo}>
-				{templateData.blurbContent[0].services.map((blurb) => {
-					return (
-						<div key={blurb.id} className={styles.whyChooseUs}>
-							<Image
-								src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blurb.icon.data.attributes.url}`}
-								alt={blurb.icon.data.attributes.alternativeText}
-								width={50}
-								height={50}
-							/>
-							<h4>{blurb.title}</h4>
-							<p>{blurb.content}</p>
-						</div>
-					);
-				})}</div>
+					{templateData.blurbContent[0].services.map((blurb) => {
+						return (
+							<div key={blurb.id} className={styles.whyChooseUs}>
+								<Image
+									src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${blurb.icon.data.attributes.url}`}
+									alt={blurb.icon.data.attributes.alternativeText}
+									width={50}
+									height={50}
+								/>
+								<h4>{blurb.title}</h4>
+								<p>{blurb.content}</p>
+							</div>
+						);
+					})}
+				</div>
 			</section>
 			<section className={styles.sectionFive}>
 				<div className={`${styles.row} ${styles.rowOne}`}>
-					<h3>News Updates</h3>
-					<span>Blog</span>
+					<h3 className={styles.sectionHeading}>News Updates</h3>
+					<hr className={styles.headingLine} />
 				</div>
 				<div className={`${styles.row} ${styles.rowTwo}`}>
 					{previewPostData.slice(0, 3).map((post) => {
